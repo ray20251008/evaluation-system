@@ -1,0 +1,6 @@
+# Temporary files
+scratch_doc.txt
+scratch/
+extract_doc.py
+__pycache__/
+*.pyc
