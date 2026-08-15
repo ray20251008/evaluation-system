@@ -11,7 +11,7 @@
   <!-- Chart.js for data visualization -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- Custom CSS for Lifelong Learning -->
-  <link rel="stylesheet" href="lifelong.css?v=2.0">
+  <link rel="stylesheet" href="lifelong.css?v=4.0">
 </head>
 <body>
 
@@ -382,16 +382,89 @@
 
         <!-- Blank Assessment Sheet Printable Body -->
         <div class="blank-sheet-body" id="blankSheetContainer">
-          <!-- Dynamically populated blank evaluation form matching webpage -->
+          <div class="blank-doc-header">
+            <div class="blank-org-title">財團法人天主教嘉義教區附設雲林縣私立華聖家園_瑞翔社區日間作業所</div>
+            <div class="blank-main-title">116年度 終身學習領域 四季主題課程規劃與學習檢核表</div>
+            <div class="blank-theme-title">第一季 (1~3月)：生活常規、作息適應與自我倡議 - 實施評量表</div>
+          </div>
+
+          <div class="blank-meta-grid">
+            <div><strong>評量學員姓名：</strong>___________________</div>
+            <div><strong>評量階段：</strong>【 □ 第1月：前測基準 　□ 第2月：課堂平時 　□ 第3月：後測驗收 】</div>
+            <div><strong>評量日期：</strong>民國 ______ 年 ______ 月 ______ 日</div>
+          </div>
+
+          <div class="blank-standard-bar">
+            <strong>【提示等級評分標準】</strong>
+            <span>5:獨立完成(＋)</span> ｜ 
+            <span>4:口語提醒(Ｖ)</span> ｜ 
+            <span>3:部分肢體協助(Ｐ)</span> ｜ 
+            <span>2:部分協助</span> ｜ 
+            <span>1:尚未學會(－)</span> ｜ 
+            <span>0:無法配合</span>
+          </div>
+
+          <div class="blank-indicators-list">
+            <div class="blank-ind-row">
+              <div class="blank-ind-num">1</div>
+              <div class="blank-ind-desc">能辨識小作所每日作息、週課表與停班停課資訊（如週六日休息、看新聞確認颱風假）</div>
+              <div class="blank-score-group">
+                <div class="blank-score-box"><span>5</span><span class="score-lbl">獨立</span></div>
+                <div class="blank-score-box"><span>4</span><span class="score-lbl">口語</span></div>
+                <div class="blank-score-box"><span>3</span><span class="score-lbl">肢協</span></div>
+                <div class="blank-score-box"><span>2</span><span class="score-lbl">部分</span></div>
+                <div class="blank-score-box"><span>1</span><span class="score-lbl">未學</span></div>
+                <div class="blank-score-box"><span>0</span><span class="score-lbl">無法</span></div>
+              </div>
+            </div>
+            <div class="blank-ind-row">
+              <div class="blank-ind-num">2</div>
+              <div class="blank-ind-desc">理解作業活動與獎勵金制度之關聯（知道認真代工/手作可獲取獎勵金用於社區購物）</div>
+              <div class="blank-score-group">
+                <div class="blank-score-box"><span>5</span><span class="score-lbl">獨立</span></div>
+                <div class="blank-score-box"><span>4</span><span class="score-lbl">口語</span></div>
+                <div class="blank-score-box"><span>3</span><span class="score-lbl">肢協</span></div>
+                <div class="blank-score-box"><span>2</span><span class="score-lbl">部分</span></div>
+                <div class="blank-score-box"><span>1</span><span class="score-lbl">未學</span></div>
+                <div class="blank-score-box"><span>0</span><span class="score-lbl">無法</span></div>
+              </div>
+            </div>
+            <div class="blank-ind-row">
+              <div class="blank-ind-num">3</div>
+              <div class="blank-ind-desc">能主動表達個人身心需求、身體不適或善用意見箱與支持者/社工溝通傾訴</div>
+              <div class="blank-score-group">
+                <div class="blank-score-box"><span>5</span><span class="score-lbl">獨立</span></div>
+                <div class="blank-score-box"><span>4</span><span class="score-lbl">口語</span></div>
+                <div class="blank-score-box"><span>3</span><span class="score-lbl">肢協</span></div>
+                <div class="blank-score-box"><span>2</span><span class="score-lbl">部分</span></div>
+                <div class="blank-score-box"><span>1</span><span class="score-lbl">未學</span></div>
+                <div class="blank-score-box"><span>0</span><span class="score-lbl">無法</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="blank-summary-box">
+            <div class="blank-summary-row">
+              <div><strong>總得分：</strong>_______ / 15 分</div>
+              <div><strong>指標平均：</strong>_______ 分 (滿分 5.0)</div>
+              <div><strong>自立階段判定：</strong>
+                【 □ 🟢 獨立 (5分) 　□ 🔵 口語 (4分) 　□ 🟡 肢體協助 (3分) 　□ 🟠 部分肢體協助 (2分) 　□ 🔴 無法完成 (0分) 】
+              </div>
+            </div>
+            <div style="margin-top: 0.6rem;">
+              <strong>個別化支持策略與課堂觀察紀錄：</strong>
+              <div style="border-bottom: 1px dashed #cbd5e1; height: 24px; margin-top: 4px;"></div>
+              <div style="border-bottom: 1px dashed #cbd5e1; height: 24px; margin-top: 4px;"></div>
+            </div>
+          </div>
+
+          <div class="blank-signature-row">
+            <div>教保員 / 記錄者簽章：____________________</div>
+            <div>專業督導簽章：____________________</div>
+          </div>
         </div>
       </div>
     </section>
-
-    <!-- Print Footer Signatures (Visible only when printing other tabs) -->
-    <div class="print-only print-signature-bar">
-      <div>教保員 / 記錄者簽章：____________________</div>
-      <div>專業督導簽章：____________________</div>
-    </div>
 
   </main>
 
@@ -501,6 +574,6 @@
   <div class="toast-container" id="toastContainer"></div>
 
   <!-- Custom App JavaScript for Lifelong Learning -->
-  <script src="lifelong.js?v=2.0"></script>
+  <script src="lifelong.js?v=4.0"></script>
 </body>
 </html>
