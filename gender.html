@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>身心障礙衛教與學習成效評量追蹤系統 | 116年度成效手冊標準</title>
+  <title>性別平等教育與學習成效評量追蹤系統 | 116年度成效手冊標準</title>
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,18 +11,18 @@
   <!-- Chart.js for data visualization -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css?v=4.0">
+  <link rel="stylesheet" href="gender.css?v=2.0">
 </head>
 <body>
 
   <!-- Top System Switch Banner -->
   <div class="system-switch-bar no-print">
     <div>
-      <span>📍 目前所在系統：<strong>🏥 衛教學習成效評量系統</strong></span>
+      <span>📍 目前所在系統：<strong>🌸 性別平等教育學習評量系統</strong></span>
     </div>
     <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+      <a href="index.html" class="system-switch-link">🏥 衛教學習系統 ➔</a>
       <a href="lifelong.html" class="system-switch-link">🎓 終身學習系統 ➔</a>
-      <a href="gender.html" class="system-switch-link" style="color: #f472b6;">🌸 性別平等教育系統 ➔</a>
     </div>
   </div>
 
@@ -30,20 +30,20 @@
   <header class="app-header">
     <div class="header-inner">
       <div class="brand-section">
-        <div class="brand-logo">📊</div>
+        <div class="brand-logo">🌸</div>
         <div class="brand-title">
           <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <h1 id="appMainTitle">身心障礙衛教與學習成效評量追蹤系統</h1>
+            <h1 id="appMainTitle">116年度 性別平等教育領域 四季主題課程規劃與學習檢核表</h1>
             <button id="btnEditAppTitle" class="btn-edit-inline" title="點擊編輯系統標題與副標題">✏️ 編輯標題</button>
           </div>
-          <p id="appSubTitle">116年度小作所／日照中心健康自立能力階梯評量與 ISP 成效統計</p>
+          <p id="appSubTitle">財團法人天主教嘉義教區附設雲林縣私立華聖家園_瑞翔社區日間作業所</p>
         </div>
       </div>
       <div class="header-actions">
         <button id="btnAddNewLearner" class="btn btn-teal">
           <span>➕</span> 新增學員
         </button>
-        <button id="btnPrintBlankTemplateDirect" onclick="openBlankSheetView(true)" class="btn btn-primary" style="background: #10b981; border-color: #059669;">
+        <button id="btnPrintBlankTemplateDirect" onclick="openBlankSheetView(true)" class="btn btn-primary" style="background: #be185d; border-color: #9d174d;">
           <span>📄</span> 列印/預覽空白評量表 (網頁版)
         </button>
         <button id="btnExportExcel" class="btn btn-outline" style="color: #fff; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.1);">
@@ -62,13 +62,13 @@
     <!-- Print Header (Visible only on print/PDF) -->
     <div class="print-only">
       <div class="print-header">
-        <h1 id="printDocTitle">身心障礙衛教執行計畫暨學習成效評量表</h1>
-        <p id="printDocSubTitle">116年度小作所／日照中心健康自立能力階梯評量與 ISP 成果統計</p>
+        <h1 id="printDocTitle">116年度 性別平等教育領域 四季主題課程規劃與學習檢核表</h1>
+        <p id="printDocSubTitle">財團法人天主教嘉義教區附設雲林縣私立華聖家園_瑞翔社區日間作業所</p>
       </div>
       <div class="print-meta">
-        <div><strong>評量季度：</strong><span id="printMetaQuarter">第一季：健康衛生與日常照護</span></div>
+        <div><strong>評量季度：</strong><span id="printMetaQuarter">第一季：身體界線、隱私保護與自我防衛</span></div>
         <div><strong>列印日期：</strong><span id="printMetaDate">2026/08/15</span></div>
-        <div><strong>機構單位：</strong><span id="printMetaOrg">身心障礙日間服務中心</span></div>
+        <div><strong>機構單位：</strong><span id="printMetaOrg">瑞翔社區日間作業所</span></div>
       </div>
     </div>
 
@@ -76,20 +76,20 @@
     <div class="control-toolbar">
       <div class="season-selector" id="seasonSelector">
         <button class="season-btn active" data-quarter="Q1">
-          <span id="seasonTabName_Q1">🧼 第一季 (Q1)：健康衛生與日常照護 (1~3月)</span>
+          <span id="seasonTabName_Q1">🛡️ 第一季 (Q1)：身體界線、隱私保護與自我防衛 (1~3月)</span>
         </button>
         <button class="season-btn" data-quarter="Q2">
-          <span id="seasonTabName_Q2">🥗 第二季 (Q2)：健康飲食與身體監測 (4~6月)</span>
+          <span id="seasonTabName_Q2">🤝 第二季 (Q2)：人際互動、情感表達與社交界線 (4~6月)</span>
         </button>
         <button class="season-btn" data-quarter="Q3">
-          <span id="seasonTabName_Q3">🚨 第三季 (Q3)：緊急事故與健康安全 (7~9月)</span>
+          <span id="seasonTabName_Q3">⚖️ 第三季 (Q3)：性別平等、破除刻板印象與分工 (7~9月)</span>
         </button>
         <button class="season-btn" data-quarter="Q4">
-          <span id="seasonTabName_Q4">🗣️ 第四季 (Q4)：身體自主與自我倡議 (10~12月)</span>
+          <span id="seasonTabName_Q4">🌐 第四季 (Q4)：親密關係、網路交友與自我倡議 (10~12月)</span>
         </button>
       </div>
       <div class="action-tools">
-        <button id="btnOpenBlankTabToolbar" onclick="openBlankSheetView(false)" class="btn btn-primary btn-sm" style="background: #10b981; border-color: #059669;">
+        <button id="btnOpenBlankTabToolbar" onclick="openBlankSheetView(false)" class="btn btn-primary btn-sm" style="background: #be185d; border-color: #9d174d;">
           <span>📄</span> 列印/預覽空白評量表
         </button>
         <button id="btnEditQuarterTheme" class="btn btn-outline btn-sm" title="編輯目前季度主題名稱與說明">
@@ -118,16 +118,16 @@
         <div class="kpi-icon teal">📈</div>
         <div class="kpi-content">
           <div class="kpi-label">當季平均後測得分</div>
-          <div class="kpi-value" id="kpiAvgPostScore">43.8 分</div>
-          <div class="kpi-sub" id="kpiAvgAchievement">達成率 87.6% (滿分50)</div>
+          <div class="kpi-value" id="kpiAvgPostScore">44.5 分</div>
+          <div class="kpi-sub" id="kpiAvgAchievement">達成率 89.0% (滿分50)</div>
         </div>
       </div>
       <div class="kpi-card">
         <div class="kpi-icon green">🚀</div>
         <div class="kpi-content">
           <div class="kpi-label">當季平均進步分數</div>
-          <div class="kpi-value" id="kpiAvgGrowthScore">+13.5 分</div>
-          <div class="kpi-sub" id="kpiAvgGrowthRate">平均進步率 +45.2%</div>
+          <div class="kpi-value" id="kpiAvgGrowthScore">+13.8 分</div>
+          <div class="kpi-sub" id="kpiAvgGrowthRate">平均進步率 +46.9%</div>
         </div>
       </div>
       <div class="kpi-card">
@@ -157,7 +157,7 @@
       <button class="tab-btn" data-tab="tab-indicators">
         <span>⚙️</span> 檢核指標與標準設定
       </button>
-      <button class="tab-btn" data-tab="tab-blank-sheet" style="color: #059669; font-weight: 700;">
+      <button class="tab-btn" data-tab="tab-blank-sheet" style="color: #be185d; font-weight: 700;">
         <span>📄</span> 空白紙本評量表 (網頁版)
       </button>
     </div>
@@ -168,7 +168,7 @@
         <div class="card-header">
           <div>
             <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <h2 id="scoringQuarterTitle">第一季 (Q1)：健康衛生與日常照護 - 實作評量</h2>
+              <h2 id="scoringQuarterTitle">第一季 (1~3月)：身體界線、隱私保護與自我防衛 - 實作評量</h2>
               <button id="btnEditCurrentQuarterDirect" class="btn-edit-dark">✏️ 編輯主題</button>
             </div>
             <div class="header-desc">點選學員名稱與 0~5 分提示等級，系統將即時計算總分、指標平均、進步幅度與學習階段。</div>
@@ -177,7 +177,7 @@
             <button id="btnPrintScoringSheet" class="btn btn-primary btn-sm">
               <span>🖨️</span> 列印此學員評量記錄表
             </button>
-            <button id="btnPrintBlankSheetFromTab1" class="btn btn-outline btn-sm" style="color: #059669; border-color: #059669;">
+            <button id="btnPrintBlankSheetFromTab1" class="btn btn-outline btn-sm" style="color: #be185d; border-color: #be185d;">
               <span>📄</span> 列印當季空白評量表
             </button>
             <button id="btnQuickFillSample" class="btn btn-outline btn-sm">⚡ 帶入示範分數</button>
@@ -330,7 +330,7 @@
         <div class="card-header">
           <div>
             <h2>個別化服務計畫 (ISP) 質性評語與評鑑成果摘要生成器</h2>
-            <div class="header-desc">系統依據前後測得分差、達成率及提示等級轉變，自動組裝符合身障衛教評鑑標準之質性評述。</div>
+            <div class="header-desc">系統依據前後測得分差、達成率及提示等級轉變，自動組裝符合性別平等教育評量標準之質性評述。</div>
           </div>
           <div class="action-tools">
             <button id="btnPrintIspReport" class="btn btn-primary btn-sm">
@@ -371,11 +371,11 @@
       <div class="content-card blank-sheet-preview-card" style="border: 2px solid var(--primary-border); background: #ffffff; padding: 1.5rem;">
         <div class="card-header no-print">
           <div>
-            <h2>📄 衛教學習成效空白紙本評量表（比照網頁排版）</h2>
+            <h2>📄 性別平等教育學習成效空白紙本評量表（比照網頁排版）</h2>
             <div class="header-desc">比照系統網頁排版格式，包含學員基本資料填寫欄、提示等級說明、題目工作分析與未評分 0~5 分數方塊，可直接於網頁瀏覽或列印存為 PDF。</div>
           </div>
           <div class="action-tools">
-            <button id="btnPrintBlankSheetDirect" class="btn btn-primary btn-sm" style="background: #10b981; border-color: #059669;">
+            <button id="btnPrintBlankSheetDirect" class="btn btn-primary btn-sm" style="background: #be185d; border-color: #9d174d;">
               <span>🖨️</span> 列印此空白評量表 (PDF)
             </button>
           </div>
@@ -384,9 +384,9 @@
         <!-- Blank Assessment Sheet Printable Body -->
         <div class="blank-sheet-body" id="blankSheetContainer">
           <div class="blank-doc-header">
-            <div class="blank-org-title">116年度小作所／日照中心健康自立能力階梯評量與 ISP 成效統計</div>
-            <div class="blank-main-title">身心障礙衛教與學習成效評量追蹤系統</div>
-            <div class="blank-theme-title">第一季 (1~3月)：健康衛生與日常照護 - 實施評量表</div>
+            <div class="blank-org-title" id="blankDocOrgTitle">財團法人天主教嘉義教區附設雲林縣私立華聖家園_瑞翔社區日間作業所</div>
+            <div class="blank-main-title" id="blankDocMainTitle">116年度 性別平等教育領域 四季主題課程規劃與學習檢核表</div>
+            <div class="blank-theme-title" id="blankThemeTitle">第一季 (1~3月)：身體界線、隱私保護與自我防衛 - 實施評量表</div>
           </div>
 
           <div class="blank-meta-grid">
@@ -397,25 +397,16 @@
 
           <div class="blank-standard-bar">
             <strong>【提示等級評分標準】</strong>
-            <span>5:獨立完成</span> ｜ 
-            <span>4:口語提示</span> ｜ 
-            <span>3:肢體協助</span> ｜ 
+            <span>5:獨立完成(+)</span> ｜ 
+            <span>4:口語提醒(V)</span> ｜ 
+            <span>3:部分肢體協助(P)</span> ｜ 
             <span>2:部分協助</span> ｜ 
-            <span>1:大量協助</span> ｜ 
-            <span>0:無法完成</span>
+            <span>1:尚未學會(-)</span> ｜ 
+            <span>0:無法配合</span>
           </div>
 
-          <div class="blank-indicators-list">
-            <div class="blank-ind-row"><div class="blank-ind-num">1</div><div class="blank-ind-desc">能說出需要洗手的時機（如飯前、便後、擤鼻涕後等）</div><div class="blank-score-group"><div class="blank-score-box"><span>5</span><span class="score-lbl">獨立</span></div><div class="blank-score-box"><span>4</span><span class="score-lbl">口語</span></div><div class="blank-score-box"><span>3</span><span class="score-lbl">肢協</span></div><div class="blank-score-box"><span>2</span><span class="score-lbl">部分</span></div><div class="blank-score-box"><span>1</span><span class="score-lbl">大量</span></div><div class="blank-score-box"><span>0</span><span class="score-lbl">無法</span></div></div></div>
-            <div class="blank-ind-row"><div class="blank-ind-num">2</div><div class="blank-ind-desc">能正確執行內外夾弓大立腕洗手步驟</div><div class="blank-score-group"><div class="blank-score-box"><span>5</span><span class="score-lbl">獨立</span></div><div class="blank-score-box"><span>4</span><span class="score-lbl">口語</span></div><div class="blank-score-box"><span>3</span><span class="score-lbl">肢協</span></div><div class="blank-score-box"><span>2</span><span class="score-lbl">部分</span></div><div class="blank-score-box"><span>1</span><span class="score-lbl">大量</span></div><div class="blank-score-box"><span>0</span><span class="score-lbl">無法</span></div></div></div>
-            <div class="blank-ind-row"><div class="blank-ind-num">3</div><div class="blank-ind-desc">能將雙手搓洗至乾淨並以流動水沖洗乾淨</div><div class="blank-score-group"><div class="blank-score-box"><span>5</span><span class="score-lbl">獨立</span></div><div class="blank-score-box"><span>4</span><span class="score-lbl">口語</span></div><div class="blank-score-box"><span>3</span><span class="score-lbl">肢協</span></div><div class="blank-score-box"><span>2</span><span class="score-lbl">部分</span></div><div class="blank-score-box"><span>1</span><span class="score-lbl">大量</span></div><div class="blank-score-box"><span>0</span><span class="score-lbl">無法</span></div></div></div>
-            <div class="blank-ind-row"><div class="blank-ind-num">4</div><div class="blank-ind-desc">能正確拿取牙刷及牙膏並擠出適當量</div><div class="blank-score-group"><div class="blank-score-box"><span>5</span><span class="score-lbl">獨立</span></div><div class="blank-score-box"><span>4</span><span class="score-lbl">口語</span></div><div class="blank-score-box"><span>3</span><span class="score-lbl">肢協</span></div><div class="blank-score-box"><span>2</span><span class="score-lbl">部分</span></div><div class="blank-score-box"><span>1</span><span class="score-lbl">大量</span></div><div class="blank-score-box"><span>0</span><span class="score-lbl">無法</span></div></div></div>
-            <div class="blank-ind-row"><div class="blank-ind-num">5</div><div class="blank-ind-desc">能維持適當角度（貝氏刷牙法）刷牙</div><div class="blank-score-group"><div class="blank-score-box"><span>5</span><span class="score-lbl">獨立</span></div><div class="blank-score-box"><span>4</span><span class="score-lbl">口語</span></div><div class="blank-score-box"><span>3</span><span class="score-lbl">肢協</span></div><div class="blank-score-box"><span>2</span><span class="score-lbl">部分</span></div><div class="blank-score-box"><span>1</span><span class="score-lbl">大量</span></div><div class="blank-score-box"><span>0</span><span class="score-lbl">無法</span></div></div></div>
-            <div class="blank-ind-row"><div class="blank-ind-num">6</div><div class="blank-ind-desc">能依序清潔牙齒各區域（內側、外側、咬合面）</div><div class="blank-score-group"><div class="blank-score-box"><span>5</span><span class="score-lbl">獨立</span></div><div class="blank-score-box"><span>4</span><span class="score-lbl">口語</span></div><div class="blank-score-box"><span>3</span><span class="score-lbl">肢協</span></div><div class="blank-score-box"><span>2</span><span class="score-lbl">部分</span></div><div class="blank-score-box"><span>1</span><span class="score-lbl">大量</span></div><div class="blank-score-box"><span>0</span><span class="score-lbl">無法</span></div></div></div>
-            <div class="blank-ind-row"><div class="blank-ind-num">7</div><div class="blank-ind-desc">能用流動水清潔傷口及周圍髒污</div><div class="blank-score-group"><div class="blank-score-box"><span>5</span><span class="score-lbl">獨立</span></div><div class="blank-score-box"><span>4</span><span class="score-lbl">口語</span></div><div class="blank-score-box"><span>3</span><span class="score-lbl">肢協</span></div><div class="blank-score-box"><span>2</span><span class="score-lbl">部分</span></div><div class="blank-score-box"><span>1</span><span class="score-lbl">大量</span></div><div class="blank-score-box"><span>0</span><span class="score-lbl">無法</span></div></div></div>
-            <div class="blank-ind-row"><div class="blank-ind-num">8</div><div class="blank-ind-desc">能正確撕開並使用OK繃／透氣膠帶包紮傷口</div><div class="blank-score-group"><div class="blank-score-box"><span>5</span><span class="score-lbl">獨立</span></div><div class="blank-score-box"><span>4</span><span class="score-lbl">口語</span></div><div class="blank-score-box"><span>3</span><span class="score-lbl">肢協</span></div><div class="blank-score-box"><span>2</span><span class="score-lbl">部分</span></div><div class="blank-score-box"><span>1</span><span class="score-lbl">大量</span></div><div class="blank-score-box"><span>0</span><span class="score-lbl">無法</span></div></div></div>
-            <div class="blank-ind-row"><div class="blank-ind-num">9</div><div class="blank-ind-desc">止鼻血時能保持頭部微前傾並正確加壓止血</div><div class="blank-score-group"><div class="blank-score-box"><span>5</span><span class="score-lbl">獨立</span></div><div class="blank-score-box"><span>4</span><span class="score-lbl">口語</span></div><div class="blank-score-box"><span>3</span><span class="score-lbl">肢協</span></div><div class="blank-score-box"><span>2</span><span class="score-lbl">部分</span></div><div class="blank-score-box"><span>1</span><span class="score-lbl">大量</span></div><div class="blank-score-box"><span>0</span><span class="score-lbl">無法</span></div></div></div>
-            <div class="blank-ind-row"><div class="blank-ind-num">10</div><div class="blank-ind-desc">止血或傷口護理時，能知道何時需尋求支持者協助</div><div class="blank-score-group"><div class="blank-score-box"><span>5</span><span class="score-lbl">獨立</span></div><div class="blank-score-box"><span>4</span><span class="score-lbl">口語</span></div><div class="blank-score-box"><span>3</span><span class="score-lbl">肢協</span></div><div class="blank-score-box"><span>2</span><span class="score-lbl">部分</span></div><div class="blank-score-box"><span>1</span><span class="score-lbl">大量</span></div><div class="blank-score-box"><span>0</span><span class="score-lbl">無法</span></div></div></div>
+          <div class="blank-indicators-list" id="blankIndicatorsListContainer">
+            <!-- Dynamic 10 indicators -->
           </div>
 
           <div class="blank-summary-box">
@@ -462,7 +453,7 @@
         </div>
         <div class="form-group">
           <label for="learnerModalNotes">個別注意事項 / 備註</label>
-          <textarea id="learnerModalNotes" class="form-control" placeholder="例如: 需加強洗手手指夾縫搓洗、注意力易分散"></textarea>
+          <textarea id="learnerModalNotes" class="form-control" placeholder="例如: 隱私界線概念佳、人際互動需口語提示社交距離"></textarea>
         </div>
       </div>
       <div class="modal-footer">
@@ -482,15 +473,15 @@
       <div class="modal-body">
         <div class="form-group">
           <label for="inputAppMainTitle">系統主標題 *</label>
-          <input type="text" id="inputAppMainTitle" class="form-control" value="身心障礙衛教與學習成效評量追蹤系統">
+          <input type="text" id="inputAppMainTitle" class="form-control" value="性別平等教育與學習成效評量追蹤系統">
         </div>
         <div class="form-group">
           <label for="inputAppSubTitle">副標題 / 計畫說明</label>
-          <input type="text" id="inputAppSubTitle" class="form-control" value="116年度小作所／日照中心健康自立能力階梯評量與 ISP 成效統計">
+          <input type="text" id="inputAppSubTitle" class="form-control" value="116年度小作所／日照中心性別自主能力階梯評量與 ISP 成效統計">
         </div>
         <div class="form-group">
           <label for="inputAppOrgName">機構單位名稱 (列印於報表頂端)</label>
-          <input type="text" id="inputAppOrgName" class="form-control" value="身心障礙日間服務中心">
+          <input type="text" id="inputAppOrgName" class="form-control" value="瑞翔社區日間作業所">
         </div>
       </div>
       <div class="modal-footer">
@@ -545,11 +536,10 @@
     </div>
   </div>
 
-
   <!-- Toast Notification Container -->
   <div class="toast-container" id="toastContainer"></div>
 
-  <!-- Custom App JavaScript -->
-  <script src="app.js?v=4.0"></script>
+  <!-- Custom Gender Equality JavaScript -->
+  <script src="gender.js?v=2.0"></script>
 </body>
 </html>
