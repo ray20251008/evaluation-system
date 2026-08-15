@@ -993,7 +993,7 @@ function renderBlankSheet() {
         <div><strong>總得分：</strong>_______ / ${qData.items.length * 5} 分</div>
         <div><strong>指標平均：</strong>_______ 分 (滿分 5.0)</div>
         <div><strong>自立階段判定：</strong>
-          【 □ 🟢 獨立 (4.5~5.0) 　□ 🔵 口語 (3.5~4.4) 　□ 🟡 肢協/部分 (2.0~3.4) 　□ 🟠 未學 (0~1.9) 】
+          【 □ 🟢 獨立 (5分) 　□ 🔵 口語 (4分) 　□ 🟡 肢體協助 (3分) 　□ 🟠 部分肢體協助 (2分) 　□ 🔴 無法完成 (0分) 】
         </div>
       </div>
       <div style="margin-top: 0.6rem;">
@@ -1004,9 +1004,8 @@ function renderBlankSheet() {
     </div>
 
     <div class="blank-signature-row">
-      <div>教保員 / 評量者簽章：____________________</div>
+      <div>教保員 / 記錄者簽章：____________________</div>
       <div>專業督導簽章：____________________</div>
-      <div>機構主管核閱：____________________</div>
     </div>
   `;
 }

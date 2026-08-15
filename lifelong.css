@@ -1350,4 +1350,8 @@ body {
     padding: 4pt 6pt !important;
     page-break-inside: avoid !important;
   }
+  #tab-blank-sheet.print-active ~ .print-signature-bar,
+  #tab-blank-sheet.active ~ .print-signature-bar {
+    display: none !important;
+  }
 }
