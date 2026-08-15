@@ -1387,6 +1387,17 @@ function attachEvents() {
     setTimeout(() => triggerPrint("tab-blank-sheet"), 100);
   });
 
+  document.getElementById("btnOpenBlankTabToolbar")?.addEventListener("click", () => {
+    switchTab("tab-blank-sheet");
+    renderBlankSheet();
+  });
+
+  document.getElementById("btnPrintBlankSheetFromTab1")?.addEventListener("click", () => {
+    switchTab("tab-blank-sheet");
+    renderBlankSheet();
+    setTimeout(() => triggerPrint("tab-blank-sheet"), 100);
+  });
+
   document.getElementById("btnPrintBlankSheetDirect")?.addEventListener("click", () => {
     triggerPrint("tab-blank-sheet");
   });
