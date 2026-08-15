@@ -42,14 +42,14 @@
         <button id="btnAddNewLearner" class="btn btn-teal">
           <span>➕</span> 新增學員
         </button>
-        <button id="btnDownloadBlankExcel" class="btn btn-outline" style="color: #fff; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.15);">
-          <span>📥</span> 下載空白 Excel 範本
+        <button id="btnPrintBlankTemplateDirect" class="btn btn-primary" style="background: #10b981; border-color: #059669;">
+          <span>📄</span> 列印/預覽空白評量表 (網頁版)
         </button>
         <button id="btnExportExcel" class="btn btn-outline" style="color: #fff; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.1);">
           <span>📊</span> 匯出目前數據 (CSV)
         </button>
         <button id="btnPrintReport" class="btn btn-outline" style="color: #fff; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.1);">
-          <span>🖨️</span> 列印評量表
+          <span>🖨️</span> 列印評量總表
         </button>
       </div>
     </div>
@@ -152,6 +152,9 @@
       </button>
       <button class="tab-btn" data-tab="tab-indicators">
         <span>⚙️</span> 檢核指標與標準設定
+      </button>
+      <button class="tab-btn" data-tab="tab-blank-sheet" style="color: #059669; font-weight: 700;">
+        <span>📄</span> 空白紙本評量表 (網頁版)
       </button>
     </div>
 
@@ -345,13 +348,35 @@
           </div>
           <div class="action-tools">
             <button id="btnPrintBlankSheet" class="btn btn-outline btn-sm">
-              <span>🖨️</span> 列印空白評量用紙
+              <span>🖨️</span> 列印指標清單
             </button>
           </div>
         </div>
 
         <div id="indicatorsManageContainer">
           <!-- Dynamic editable indicators list -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 6: Blank Assessment Paper (Web View & Print) -->
+    <section id="tab-blank-sheet" class="tab-panel">
+      <div class="content-card blank-sheet-preview-card" style="border: 2px solid var(--primary-border); background: #ffffff; padding: 1.5rem;">
+        <div class="card-header no-print">
+          <div>
+            <h2>📄 終身學習空白紙本評量表（比照網頁排版）</h2>
+            <div class="header-desc">比照系統網頁排版格式，包含學員基本資料填寫欄、提示等級說明、題目工作分析與未評分 0~5 分數方塊，可直接於網頁瀏覽或列印存為 PDF。</div>
+          </div>
+          <div class="action-tools">
+            <button id="btnPrintBlankSheetDirect" class="btn btn-primary btn-sm" style="background: #10b981; border-color: #059669;">
+              <span>🖨️</span> 列印此空白評量表 (PDF)
+            </button>
+          </div>
+        </div>
+
+        <!-- Blank Assessment Sheet Printable Body -->
+        <div class="blank-sheet-body" id="blankSheetContainer">
+          <!-- Dynamically populated blank evaluation form matching webpage -->
         </div>
       </div>
     </section>

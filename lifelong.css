@@ -1171,27 +1171,183 @@ body {
     page-break-inside: avoid;
   }
 
-  .tab-panel {
-    display: none !important;
-  }
-
-  .tab-panel.print-active, .tab-panel.active {
-    display: block !important;
-  }
+/* Blank Assessment Paper Styles (Matching Webpage Look) */
+.blank-sheet-body {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  max-width: 960px;
+  margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-  .indicator-row {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
+.blank-doc-header {
+  text-align: center;
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.blank-org-title {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.blank-main-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 0.25rem 0;
+}
+
+.blank-theme-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.blank-meta-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 0.85rem;
+  font-size: 0.9rem;
+}
+
+.blank-standard-bar {
+  background: var(--primary-light);
+  border: 1px solid var(--primary-border);
+  color: var(--primary);
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-md);
+  font-size: 0.825rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.blank-indicators-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.blank-ind-row {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  align-items: center;
+  gap: 0.85rem;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.65rem 0.85rem;
+}
+
+.blank-ind-num {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-full);
+  background: var(--primary-light);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blank-ind-desc {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-main);
+  line-height: 1.4;
+}
+
+.blank-score-group {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.blank-score-box {
+  width: 44px;
+  height: 38px;
+  border: 1.5px solid #94a3b8;
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #334155;
+  line-height: 1.1;
+}
+
+.blank-score-box .score-lbl {
+  font-size: 0.6rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.blank-summary-box {
+  background: var(--bg-subtle);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+}
+
+.blank-summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  border-bottom: 1px dashed var(--border-color);
+  padding-bottom: 0.6rem;
+}
+
+.blank-signature-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-top: 1px dashed #94a3b8;
+}
+
+@media print {
+  .blank-sheet-preview-card {
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
   }
-  .score-selector {
-    justify-content: space-between;
+  .blank-sheet-body {
+    border: none !important;
+    padding: 0 !important;
+    max-width: 100% !important;
   }
-  .score-btn {
-    flex: 1;
+  .blank-score-box {
+    border: 1pt solid #475569 !important;
+    width: 32pt !important;
+    height: 24pt !important;
+    font-size: 8.5pt !important;
   }
-  .charts-grid {
-    grid-template-columns: 1fr;
+  .blank-score-box .score-lbl {
+    font-size: 5.5pt !important;
+  }
+  .blank-ind-row {
+    padding: 4pt 6pt !important;
+    page-break-inside: avoid !important;
   }
 }

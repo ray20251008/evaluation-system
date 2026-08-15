@@ -1073,12 +1073,93 @@ function exportDataCSV() {
   showToast("已成功匯出 CSV 試算表（支援 Excel 繁體中文開啟）", "success");
 }
 
+function renderBlankSheet() {
+  const container = document.getElementById("blankSheetContainer");
+  if (!container) return;
+  const quarter = state.currentQuarter;
+  const qData = state.indicators[quarter];
+
+  let itemsHtml = "";
+  qData.items.forEach((itemText, idx) => {
+    let scoreBoxes = "";
+    SCORE_LEVELS.forEach(lvl => {
+      scoreBoxes += `
+        <div class="blank-score-box">
+          <span>${lvl.score}</span>
+          <span class="score-lbl">${lvl.label.split(' ')[0]}</span>
+        </div>
+      `;
+    });
+
+    itemsHtml += `
+      <div class="blank-ind-row">
+        <div class="blank-ind-num">${idx + 1}</div>
+        <div class="blank-ind-desc">${itemText}</div>
+        <div class="blank-score-group">${scoreBoxes}</div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = `
+    <div class="blank-doc-header">
+      <div class="blank-org-title">${state.config.subTitle}</div>
+      <div class="blank-main-title">${state.config.mainTitle}</div>
+      <div class="blank-theme-title">${qData.title} - 實施評量表</div>
+    </div>
+
+    <div class="blank-meta-grid">
+      <div><strong>評量學員姓名：</strong>___________________</div>
+      <div><strong>評量階段：</strong>【 □ 第1月：前測基準 　□ 第2月：課堂平時 　□ 第3月：後測驗收 】</div>
+      <div><strong>評量日期：</strong>民國 ______ 年 ______ 月 ______ 日</div>
+    </div>
+
+    <div class="blank-standard-bar">
+      <strong>【提示等級評分標準】</strong>
+      <span>5:獨立完成</span> ｜ 
+      <span>4:口語提示</span> ｜ 
+      <span>3:肢體協助</span> ｜ 
+      <span>2:部分協助</span> ｜ 
+      <span>1:大量協助</span> ｜ 
+      <span>0:無法完成</span>
+    </div>
+
+    <div class="blank-indicators-list">
+      ${itemsHtml}
+    </div>
+
+    <div class="blank-summary-box">
+      <div class="blank-summary-row">
+        <div><strong>總得分：</strong>_______ / 50 分</div>
+        <div><strong>指標平均：</strong>_______ 分 (滿分 5.0)</div>
+        <div><strong>學習自立階段判定：</strong>
+          【 □ 🟢 獨立自主 (4.5~5.0) 　□ 🔵 口語提示 (3.5~4.4) 　□ 🟡 肢體/部分協助 (2.0~3.4) 　□ 🟠 大量協助 (0~1.9) 】
+        </div>
+      </div>
+      <div style="margin-top: 0.6rem;">
+        <strong>個別化支持策略與課堂觀察紀錄：</strong>
+        <div style="border-bottom: 1px dashed #cbd5e1; height: 24px; margin-top: 4px;"></div>
+        <div style="border-bottom: 1px dashed #cbd5e1; height: 24px; margin-top: 4px;"></div>
+      </div>
+    </div>
+
+    <div class="blank-signature-row">
+      <div>評量/教保人員簽章：____________________</div>
+      <div>社工/專業督導簽章：____________________</div>
+      <div>機構主管核閱：____________________</div>
+    </div>
+  `;
+}
+
 // 8. Global Events Attachment
 function attachEvents() {
   // Tab Switcher
   document.querySelectorAll(".tab-btn").forEach(btn => {
     btn.addEventListener("click", () => {
-      switchTab(btn.getAttribute("data-tab"));
+      const tabId = btn.getAttribute("data-tab");
+      switchTab(tabId);
+      if (tabId === "tab-blank-sheet") {
+        renderBlankSheet();
+      }
     });
   });
 
@@ -1095,6 +1176,7 @@ function attachEvents() {
       renderProgressTable();
       renderIspCards();
       renderIndicatorsManager();
+      renderBlankSheet();
       updateCharts();
     });
   });
@@ -1150,6 +1232,7 @@ function attachEvents() {
     state.config.orgName = orgName;
     saveData();
     applyAppConfig();
+    renderBlankSheet();
     closeEditTitleModal();
     showToast("系統標題與機構資訊已更新！", "success");
   });
@@ -1175,6 +1258,7 @@ function attachEvents() {
     renderProgressTable();
     renderIspCards();
     renderIndicatorsManager();
+    renderBlankSheet();
     closeEditQuarterModal();
     showToast("季度主題名稱已更新！", "success");
   });
@@ -1193,6 +1277,7 @@ function attachEvents() {
     saveData();
     renderScoringMatrix();
     renderIndicatorsManager();
+    renderBlankSheet();
     updateCharts();
     closeIndicatorModal();
     showToast(`指標 ${idx + 1} 修改成功！`, "success");
@@ -1214,7 +1299,6 @@ function attachEvents() {
     }
 
     if (hiddenId) {
-      // Editing existing learner
       const existing = state.learners.find(l => l.id === hiddenId);
       if (existing) {
         existing.name = name;
@@ -1222,7 +1306,6 @@ function attachEvents() {
         showToast(`已更新學員資料：${name}`, "success");
       }
     } else {
-      // Add new learner
       const newLearner = {
         id: newId,
         name: name,
@@ -1266,6 +1349,7 @@ function attachEvents() {
       renderProgressTable();
       renderIspCards();
       renderIndicatorsManager();
+      renderBlankSheet();
       updateCharts();
       showToast("已成功還原預設示範資料！", "success");
     }
@@ -1290,20 +1374,21 @@ function attachEvents() {
       updateKpiCards();
       renderProgressTable();
       renderIspCards();
+      renderBlankSheet();
       updateCharts();
       showToast("已成功清空所有分數，可開始全新打分！", "success");
     }
   });
 
-  // Download Blank Excel
-  document.getElementById("btnDownloadBlankExcel")?.addEventListener("click", () => {
-    const link = document.createElement("a");
-    link.href = "116年度衛教與學習成效評量分析表_空白範本檔.xlsx";
-    link.download = "116年度衛教與學習成效評量分析表_空白範本檔.xlsx";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    showToast("已開始下載【空白 Excel 範本檔】", "success");
+  // Direct Blank Print Handlers
+  document.getElementById("btnPrintBlankTemplateDirect")?.addEventListener("click", () => {
+    switchTab("tab-blank-sheet");
+    renderBlankSheet();
+    setTimeout(() => triggerPrint("tab-blank-sheet"), 100);
+  });
+
+  document.getElementById("btnPrintBlankSheetDirect")?.addEventListener("click", () => {
+    triggerPrint("tab-blank-sheet");
   });
 
   // Export CSV
@@ -1329,6 +1414,7 @@ function init() {
   renderProgressTable();
   renderIspCards();
   renderIndicatorsManager();
+  renderBlankSheet();
   updateCharts();
 }
 
