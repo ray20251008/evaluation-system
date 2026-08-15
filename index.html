@@ -11,7 +11,7 @@
   <!-- Chart.js for data visualization -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2.0">
 </head>
 <body>
 
@@ -42,7 +42,7 @@
         <button id="btnAddNewLearner" class="btn btn-teal">
           <span>➕</span> 新增學員
         </button>
-        <button id="btnPrintBlankTemplateDirect" class="btn btn-primary" style="background: #10b981; border-color: #059669;">
+        <button id="btnPrintBlankTemplateDirect" onclick="openBlankSheetView(true)" class="btn btn-primary" style="background: #10b981; border-color: #059669;">
           <span>📄</span> 列印/預覽空白評量表 (網頁版)
         </button>
         <button id="btnExportExcel" class="btn btn-outline" style="color: #fff; border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.1);">
@@ -88,7 +88,7 @@
         </button>
       </div>
       <div class="action-tools">
-        <button id="btnOpenBlankTabToolbar" class="btn btn-primary btn-sm" style="background: #10b981; border-color: #059669;">
+        <button id="btnOpenBlankTabToolbar" onclick="openBlankSheetView(false)" class="btn btn-primary btn-sm" style="background: #10b981; border-color: #059669;">
           <span>📄</span> 列印/預覽空白評量表
         </button>
         <button id="btnEditQuarterTheme" class="btn btn-outline btn-sm" title="編輯目前季度主題名稱與說明">
@@ -503,6 +503,6 @@
   <div class="toast-container" id="toastContainer"></div>
 
   <!-- Custom App JavaScript -->
-  <script src="app.js"></script>
+  <script src="app.js?v=2.0"></script>
 </body>
 </html>

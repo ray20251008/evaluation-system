@@ -924,6 +924,16 @@ function exportDataCSV() {
   showToast("已成功匯出 CSV 試算表（支援 Excel 繁體中文開啟）", "success");
 }
 
+window.openBlankSheetView = function(autoPrint = false) {
+  switchTab("tab-blank-sheet");
+  renderBlankSheet();
+  if (autoPrint) {
+    setTimeout(() => {
+      triggerPrint("tab-blank-sheet");
+    }, 250);
+  }
+};
+
 function renderBlankSheet() {
   const container = document.getElementById("blankSheetContainer");
   if (!container) return;
